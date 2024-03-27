@@ -1,0 +1,8 @@
+PreWorkout
+
+Attributes:
+ingredientsAndDosages: Dict
+nonStim: Bool
+totalServers: int 
+sizeInOz: float 
+
