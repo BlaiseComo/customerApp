@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Pre Workout Analysis</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content"width=device-width, initial-scale=1">
+        {% load django_bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        {% bootstrap_messages %}
+        <style>
+            body, html {
+              height: 100%;
+              margin: 0;
+            }
+        
+            body::before {
+              content: '';
+              position: absolute;
+              top: 0; right: 0; bottom: 0; left: 0;
+              background-image: url('{% static "images/imageOfBarbell.png" %}');
+              background-size: cover;
+              background-attachment: fixed;
+              z-index: -1;
+            }
+        
+            .content {
+              position: relative;
+              z-index: 1;
+            }
+
+            .navbar-custom {
+                background: transparent;
+                border: none;
+            }
+            
+        </style>
+    </head>
+
+    <body>
+        <div class="container-fluid content">
+
+            <nav class="navbar navbar-expand-sm navbar-custom">
+                <div class="container-fluid">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#" class="btn btn-danger me-3 mt-2">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="btn btn-danger mt-2">Pre Workouts</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="col-sm-11">
+                {% block content %}
+                {% endblock %}
+            </div>
+            
+        </div>
+    </body>
+</html>
