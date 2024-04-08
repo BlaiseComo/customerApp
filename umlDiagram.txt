@@ -1,6 +1,7 @@
 PreWorkout
 
 Attributes:
+name: String
 ingredientsAndDosages: Dict
 nonStim: Bool
 totalServers: int 

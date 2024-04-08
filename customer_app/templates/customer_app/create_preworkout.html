@@ -2,12 +2,14 @@
 
 {% block content %}
 
-    <p>Create New PreWorkout</p>
+<div class="container-fluid text-light">
+    <h1>Create New PreWorkout</h1>
 
-    <form method="post">
+    <form method="post" class="btn btn-danger">
         {% csrf_token %}
         {{ form.as_div }}
         <button name="submit">Add PreWorkout</button>
     </form>
+</div>
 
 {% endblock %}

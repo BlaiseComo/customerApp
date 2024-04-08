@@ -26,16 +26,21 @@ def create_preworkout(request):
         form = PreWorkoutForm()
 
     return render(request, 'customer_app/create_preworkout.html', {'form': form})
-    """
-    preworkout = get_object_or_404(PreWorkout, id=preworkout_id)
-    if request.method == 'POST':
-        form = PreWorkoutForm(request.POST)
-        if form.is_valid():
-            new_preworkout = form.save(commit=False)
-            new_preworkout.save()
-            return redirect('preworkout-detail', pk=preworkout.id)
-    else:
-        form = PreWorkoutForm()
 
-    context = {'form': form, 'preworkout': preworkout}
-    return render(request, 'customer_app/create_preworkout.html', context) """
+def update_preworkout(request, id):
+    preworkout = get_object_or_404(PreWorkout, pk=id)
+    if request.method == 'POST':
+        form = PreWorkoutForm(request.POST, instance=preworkout)
+        if form.is_valid():
+            form.save()
+            return redirect('preworkouts') 
+    else:
+        form = PreWorkoutForm(instance=preworkout)
+    
+    return render(request, 'customer_app/update_preworkout.html', {'form': form, 'preworkout': preworkout})
+
+def delete_preworkout(request, id):
+    preworkout = get_object_or_404(PreWorkout, pk=id)
+    if request.method == 'POST':
+        preworkout.delete()
+        return redirect('preworkouts')  

@@ -2,11 +2,22 @@
 
 {% block content %}
 
+<div class="container-fluid text-light">
     <h1>Pre Workout: {{preworkout.name}}</h1>
 
     <p>NonStim: {{preworkout.nonStim}}</p>
     <p>Total Servings: {{preworkout.totalServings}}</p>
     <p>Size: {{preworkout.sizeInOz}}</p>
     <p>Review: {{preworkout.reviewOutOfFive}}</p>
+
+    <div class="d-flex align-items-center justify-content-center text-center">
+    <a href="{% url 'update_preworkout' preworkout.id %}" class="btn btn-danger me-3">Update Pre Workout</a>
+
+    <form action="{% url 'delete_preworkout' preworkout.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?');">Delete</button>
+    </form>
+    </div>  
+</div>
 
 {% endblock %}

@@ -2,17 +2,19 @@
 
 {% block content %}
 
+    <div class="container-fluid text-light">
     <h1>Pre Workout List</h1>
     {% if preworkout_list %}
         <ul>
             {% for pre in preworkout_list %}
                 <li>
-                    <a href="{{ pre.get_absolute_url }}">{{pre.name}}</a>
+                    <a class="btn btn-danger" href="{{ pre.get_absolute_url }}">{{pre.name}}</a>
                 </li>
             {% endfor %}
         </ul>
     {% else %}
         <p>There are no pre workouts.</p>
     {% endif %}
+    </div>
 
 {% endblock %}
