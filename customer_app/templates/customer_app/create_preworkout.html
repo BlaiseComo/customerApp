@@ -1,0 +1,13 @@
+{% extends "customer_app/base_template.html" %}
+
+{% block content %}
+
+    <p>Create New PreWorkout</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_div }}
+        <button name="submit">Add PreWorkout</button>
+    </form>
+
+{% endblock %}
